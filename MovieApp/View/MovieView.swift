@@ -8,50 +8,38 @@
 import SwiftUI
 
 struct MovieView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            LazyVStack(spacing: vStackSpacing, pinnedViews: [.sectionFooters]) {
+            LazyVStack(spacing: vStackSpacing, pinnedViews: [.sectionHeaders]) {
                 
-                Section(footer: FooterButton()) {
+                Section(header: NavbarView(presentationMode: presentationMode)) {
                     
-                    HStack {
-                        Button(action: {
-                            
-                        }, label: {
-                            Image(systemName: "chevron.left")
-                                .font(.title2)
-                        })
-                        
-                        Spacer()
-                        
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                            Image(systemName: "bookmark")
-                                .font(.title2)
-                        })
-                    }
-                    .overlay(
-                        Text("Detail movie")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                    )
-                    .padding()
-                    .foregroundColor(.white)
-                
-                
                     PosterView()
+                        .onTapGesture {
+                            presentationMode.wrappedValue.dismiss()
+
+                        }
                     
-                    MovieInfoView(name: movieName, director: movieDirector,
-                              rating: movieRating, description: movieDescription, genres: movieGenres)
+                    MovieInfoView(name: movieName,
+                                  director: movieDirector,
+                                  rating: movieRating,
+                                  description: movieDescription,
+                                  genres: movieGenres)
                 }
-                
             }
              
         }
         .background(Color("bg").ignoresSafeArea())
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
     // MARK: Drawning content
     
-    let vStackSpacing: CGFloat = 15
+    let vStackSpacing: CGFloat = 10
     
     // MARK: Movie data
         
@@ -60,6 +48,50 @@ struct MovieView: View {
     let movieRating = 4.5
     let movieDescription = ""
     let movieGenres = [""]
+}
+
+struct NavbarView: View {
+    @Binding var presentationMode: PresentationMode
+    
+    var body: some View {
+        HStack {
+            Button(action: {
+                $presentationMode.wrappedValue.dismiss()
+            }, label: {
+                Image(systemName: "chevron.left")
+                    .font(.title2)
+            })
+            
+            Spacer()
+            
+            Button(action: {
+                followTitle()
+            }, label: {
+                Image(systemName: bookmarkImage)
+                    .font(.title2)
+            })
+        }
+        .overlay(
+            Text("Info")
+                .font(.title2)
+                .fontWeight(.semibold)
+        )
+        .padding()
+        .foregroundColor(.white)
+    }
+    
+    func followTitle() {
+        if isBookmarked {
+            bookmarkImage = "bookmark"
+        } else {
+            bookmarkImage = "bookmark.fill"
+        }
+        
+        isBookmarked.toggle()
+    }
+    
+    @State private var isBookmarked = false
+    @State private var bookmarkImage = "bookmark"
 }
     
     
@@ -192,7 +224,7 @@ struct FooterButton: View {
         Button(action: {
             
         }, label: {
-            Text("Follow this TV series")
+            Text(buttonText)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .padding(.vertical)
@@ -200,10 +232,12 @@ struct FooterButton: View {
                 .background(Color("followButton"))
                 .cornerRadius(cornerRadius)
         })
+        .shadow(color: Color.white.opacity(0.35), radius: 15)
     }
     // MARK: Drawing content
 
     let cornerRadius: CGFloat = 15
+    let buttonText = "Follow"
     
 }
 

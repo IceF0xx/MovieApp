@@ -8,12 +8,12 @@
 import Foundation
 
 class MovieModel {
-    static private let baseURL = "https://api.movies.mkpwnz.moe/"
+    private let baseURL = "https://api.movies.mkpwnz.moe/"
     
 }
 
 
-struct Movie: Codable {
+struct MovieTitle: Codable {
     let description: String
     let genres: [String]
     let image: String
