@@ -18,10 +18,6 @@ struct MovieView: View {
                 Section(header: NavbarView(presentationMode: presentationMode)) {
                     
                     PosterView()
-                        .onTapGesture {
-                            presentationMode.wrappedValue.dismiss()
-
-                        }
                     
                     MovieInfoView(name: movieName,
                                   director: movieDirector,
@@ -33,7 +29,6 @@ struct MovieView: View {
              
         }
         .background(Color("bg").ignoresSafeArea())
-        .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
@@ -56,6 +51,7 @@ struct NavbarView: View {
     var body: some View {
         HStack {
             Button(action: {
+                // going back ta TitleList View
                 $presentationMode.wrappedValue.dismiss()
             }, label: {
                 Image(systemName: "chevron.left")
@@ -65,7 +61,7 @@ struct NavbarView: View {
             Spacer()
             
             Button(action: {
-                followTitle()
+                addBookmark()
             }, label: {
                 Image(systemName: bookmarkImage)
                     .font(.title2)
@@ -80,7 +76,7 @@ struct NavbarView: View {
         .foregroundColor(.white)
     }
     
-    func followTitle() {
+    func addBookmark() {
         if isBookmarked {
             bookmarkImage = "bookmark"
         } else {
