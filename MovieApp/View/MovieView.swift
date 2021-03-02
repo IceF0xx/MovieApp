@@ -160,7 +160,6 @@ struct MovieInfoView: View {
         .padding(.leading)
         .frame(maxWidth: .infinity, alignment: .leading)
         
-        // Description and genres View
         DescriptionView(description, genres: genres)
             .padding(.horizontal, 30)
 

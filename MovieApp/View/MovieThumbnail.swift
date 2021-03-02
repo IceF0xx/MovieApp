@@ -13,19 +13,21 @@ struct MovieThumbnail: View {
     var body: some View {
         NavigationLink(destination: MovieView()) {
             
-            HStack(spacing: 20) {
-                Image("poster")
+            HStack(spacing: cardHorizontalSpacing) {
+                Image(movie.image)
                     .resizable()
                     .scaledToFit()
-                    .cornerRadius(15)
+                    .cornerRadius(imageCornerRadius)
                 
                 
                 VStack(alignment: .leading) {
+                    Spacer()
+                    
                     HStack {
                         Text("\(movie.name)")
                             .foregroundColor(.white)
-                            .font(.title2)
-                            .fontWeight(.bold)
+                            .font(.title3)
+                            .fontWeight(.semibold)
                         
                         Spacer()
                         
@@ -40,7 +42,7 @@ struct MovieThumbnail: View {
                     Text(movie.description)
                         .foregroundColor(.white)
                         .font(.caption)
-                        .padding(.vertical, 5)
+                        .padding(.vertical, verticalDescriptionPadding)
                 }
                 
                 
@@ -49,14 +51,19 @@ struct MovieThumbnail: View {
             }
             .frame(maxWidth: .infinity, maxHeight: getRect().width / 3)
             .overlay(
-                RoundedRectangle(cornerRadius: 15)
+                RoundedRectangle(cornerRadius: cardCornerRadius)
                     .stroke(Color.white)
             )
             .padding(.horizontal)
         }
-        .navigationBarHidden(true)
-        
     }
+    
+    // MARK: Drawing content
+    
+    let cardCornerRadius: CGFloat = 15
+    let imageCornerRadius: CGFloat = 15
+    let cardHorizontalSpacing: CGFloat = 20
+    let verticalDescriptionPadding: CGFloat = 5
 }
 
 struct MovieThumbnail_Previews: PreviewProvider {
