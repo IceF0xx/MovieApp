@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TitleListView: View {
     @State private var showSidebar = false
-    @State private var searchField = ""
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -19,21 +18,24 @@ struct TitleListView: View {
             
             NavigationView {
                 ScrollView(.vertical, showsIndicators: false) {
-                    LazyVStack(spacing: vStackSpacing, pinnedViews: [.sectionFooters])  {
-                        Section(footer: MenuNavbar(showSidebar: $showSidebar)) {
+                    LazyVStack(spacing: vStackSpacing, pinnedViews: [.sectionFooters]) {
+                        Section {
                             ForEach(movieTitles) { movie in
                                 MovieThumbnail(movie: movie)
                                     .disabled(showSidebar)
                                     .opacity(mainBlockOpacity)
                             }
+                            Spacer(minLength: getRect().height / 15)
                         }
                     }
                 }
+                .disabled(showSidebar)
                 .navigationBarTitle(navbarTitle)
                 .navigationBarItems(leading:
                     Button(action: {
                         withAnimation {
                             showSidebar.toggle()
+                            print("toggled")
                         }
                 }, label: {
                     Image(systemName: "line.horizontal.3")
@@ -45,6 +47,7 @@ struct TitleListView: View {
             }
             .offset(x: mainFrameXOffset)
             .onTapGesture {
+                // Back from Sidebar to MainView
                 if showSidebar {
                     withAnimation {
                         showSidebar.toggle()
@@ -74,38 +77,5 @@ struct TitleListView: View {
     var mainFrameXOffset: CGFloat {
         showSidebar ? getRect().width / 1.8 : 0
     }
-}
-
-
-struct MenuNavbar: View {
-    @Binding var showSidebar: Bool
-    @State private var isSearchEditing = false
-    
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: backgroundCornerRadius)
-                .fill(Color.white.opacity(backgroundOpacity))
-                .padding(.horizontal)
-            
-            
-            HStack {
-                Button(action: {
-                    withAnimation {
-                        showSidebar.toggle()
-                    }
-                }, label: {
-                    Image(systemName: "list.bullet")
-                        .font(.title2)
-                })
-                .padding(.horizontal, itemsHorizontalPadding)
-            }
-            .padding()
-            .foregroundColor(Color("bg"))
-        }
-    }
-    // MARK: Drawning content
-    let backgroundOpacity = 0.85
-    let backgroundCornerRadius: CGFloat = 20
-    let itemsHorizontalPadding: CGFloat = 15
 }
 
