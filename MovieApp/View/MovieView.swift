@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MovieView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -19,30 +19,24 @@ struct MovieView: View {
                     
                     PosterView()
                     
-                    MovieInfoView(name: movieName,
-                                  director: movieDirector,
-                                  rating: movieRating,
-                                  description: movieDescription,
-                                  genres: movieGenres)
+                    MovieInfoView(movie)
                 }
             }
-             
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
         }
         .background(Color("bg").ignoresSafeArea())
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
+
     }
+    
+    
     // MARK: Drawning content
     
     let vStackSpacing: CGFloat = 10
     
     // MARK: Movie data
-        
-    let movieName = "Rascal Does Not Dream of a dreaming girl"
-    let movieDirector = "Hajime Kamoshida"
-    let movieRating = 4.5
-    let movieDescription = ""
-    let movieGenres = [""]
+    
+    let movie: Movie
 }
 
 struct NavbarView: View {
@@ -51,7 +45,7 @@ struct NavbarView: View {
     var body: some View {
         HStack {
             Button(action: {
-                // going back ta TitleList View
+                // going back to TitleList View
                 $presentationMode.wrappedValue.dismiss()
             }, label: {
                 Image(systemName: "chevron.left")
@@ -60,9 +54,7 @@ struct NavbarView: View {
             
             Spacer()
             
-            Button(action: {
-                addBookmark()
-            }, label: {
+            Button(action: addBookmark, label: {
                 Image(systemName: bookmarkImage)
                     .font(.title2)
             })
@@ -83,14 +75,15 @@ struct NavbarView: View {
             bookmarkImage = "bookmark.fill"
         }
         
+        successVibration()
         isBookmarked.toggle()
     }
     
     @State private var isBookmarked = false
     @State private var bookmarkImage = "bookmark"
 }
-    
-    
+
+
 struct PosterView: View {
     var body: some View {
         ZStack {
@@ -105,7 +98,7 @@ struct PosterView: View {
                 .resizable()
                 .scaledToFill()
                 .cornerRadius(posterCornerRadius)
-                
+            
         }
         .frame(width: getRect().width / 1.5,
                height: getRect().height / 2)
@@ -113,7 +106,7 @@ struct PosterView: View {
     }
     
     // MARK: Drawing content
-
+    
     let yShadowOffset: CGFloat = 8
     let shadowOpacity = 0.2
     let posterCornerRadius: CGFloat = 15
@@ -124,92 +117,88 @@ struct PosterView: View {
 }
 
 struct MovieInfoView: View {
-    let name: String
-    let director: String
-    let rating: Double
-    let description: String
-    let genres: [String]
+    let movie: Movie
     
-    init(name: String, director: String, rating: Double, description: String, genres: [String]) {
-        self.name = name
-        self.director = director
-        self.rating = rating
-        self.description = description
-        self.genres = genres
+    init(_ movie: Movie) {
+        self.movie = movie
     }
     
     var body: some View {
         VStack(alignment: .leading, spacing: vStackSpacing) {
-            Text(name)
+            Text(movie.name)
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
             
             HStack {
-                Text("Director: \(director) | \(rating, specifier: "%0.1f")")
+                Text("Director: \(movie.director) | \(movie.rating, specifier: "%0.1f")")
                     .foregroundColor(.white)
                 
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
-                    .padding(.leading, 5)
+                    .padding(.leading, starImagePadding)
                     .offset(y: starImageOffset)
             }
         }
-        .padding(.top, movieNamePadding)
+        .padding(.top, descriptionBlockPaddingTop)
         .padding(.horizontal)
         .padding(.leading)
         .frame(maxWidth: .infinity, alignment: .leading)
         
-        DescriptionView(description, genres: genres)
-            .padding(.horizontal, 30)
-
+        DescriptionView(movie)
+            .padding(.horizontal, descriptionBlockPaddingHorizontal)
+        
     }
     
     // MARK: Drawing content
     
     let vStackSpacing: CGFloat = 15
-    let movieNamePadding: CGFloat = 35
     let starImageOffset: CGFloat = -1
+    let starImagePadding: CGFloat = 5
+    let descriptionBlockPaddingTop: CGFloat = 35
+    let descriptionBlockPaddingHorizontal: CGFloat = 30
 }
 
 
 struct DescriptionView: View {
-    let description: String
-    let genres: [String]
+    let movie: Movie
     
-    init(_ description: String, genres: [String]) {
-        self.description = description
-        self.genres = ["Drama", "Comedy", "Advanture", "Tragedy"]
+    init(_ movie: Movie) {
+        self.movie = movie
     }
     
     var body: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: minimumGenresWidth), alignment: .leading)]) {
-            ForEach(genres, id: \.self) { genre in
+            ForEach(movie.genres, id: \.self) { genre in
                 Text(genre)
-                    .font(.caption)
+                    .font(.footnote)
                     .padding(.vertical)
                     .frame(maxWidth: .infinity)
                     .foregroundColor(.white)
-                    .background(Color.white.opacity(genreBackgroundOpacity))
+                    .background(Color.white.opacity(genreButtonBackgroundOpacity))
                     .clipShape(Capsule())
                 
             }
         }
         
-        Text("Synopsis")
+        Text(descriptionHeader)
             .font(.title2)
             .fontWeight(.bold)
             .foregroundColor(.white)
             .padding(.vertical)
             .frame(maxWidth: .infinity ,alignment: .leading)
         
-        Text(description)
+        Text(movie.description)
             .foregroundColor(.white)
     }
     
+    // Mark: Description data
+    
+    let descriptionHeader = "Synopsis"
+    
     // MARK: Drawing content
-
-    let genreBackgroundOpacity = 0.08
+    
+    let genreButtonBackgroundOpacity = 0.08
     let minimumGenresWidth: CGFloat = 70
 }
 
@@ -227,18 +216,22 @@ struct FooterButton: View {
                 .background(Color("followButton"))
                 .cornerRadius(cornerRadius)
         })
-        .shadow(color: Color.white.opacity(0.35), radius: 15)
+        .shadow(color: Color.white.opacity(shadowOpacity), radius: shadowRadius)
     }
     // MARK: Drawing content
-
+    
     let cornerRadius: CGFloat = 15
+    let shadowRadius: CGFloat = 15
+    let shadowOpacity = 0.35
     let buttonText = "Follow"
     
 }
 
 struct Home_Previews: PreviewProvider {
+    static let text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu justo ullamcorper quam venenatis tincidunt. In hac habitasse platea dictumst. Integer sed lorem cursus, varius nisi sed, imperdiet tortor. Curabitur tristique ultrices urna, non ullamcorper erat. Ut sit amet orci nec justo faucibus euismod. Nullam nibh nulla, pharetra id tortor sit amet, cursus fringilla eros. Aenean porttitor augue mi, sit amet porta augue luctus in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas"
+    
     static var previews: some View {
-        MovieView()
+        MovieView(movie: Movie(name: "Lorem ipsum", description: text, director: "Miko pwnz", rating: 4.6, genres: ["Adventure", "Drama", "Tradegy"], image: "poster", id: 1))
     }
 }
 

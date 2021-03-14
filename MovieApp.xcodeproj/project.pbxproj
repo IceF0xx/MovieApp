@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2225BB0D25EEE073007EFDA3 /* UINavigationController+SwipeRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225BB0C25EEE073007EFDA3 /* UINavigationController+SwipeRight.swift */; };
+		2228ADF025EB27B200ABA1E4 /* MovieThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2228ADEF25EB27B200ABA1E4 /* MovieThumbnail.swift */; };
 		2248C47625E9BAE9001F844A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248C47525E9BAE9001F844A /* AppDelegate.swift */; };
 		2248C47825E9BAE9001F844A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248C47725E9BAE9001F844A /* SceneDelegate.swift */; };
 		2248C47A25E9BAE9001F844A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248C47925E9BAE9001F844A /* ContentView.swift */; };
@@ -14,9 +16,15 @@
 		2248C48D25E9BB0D001F844A /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248C48C25E9BB0D001F844A /* MovieView.swift */; };
 		2248C49025E9BB15001F844A /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248C48F25E9BB15001F844A /* MovieModel.swift */; };
 		2248C49425E9BB31001F844A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2248C49325E9BB31001F844A /* Assets.xcassets */; };
+		2248C49B25EB087F001F844A /* TitleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248C49A25EB087F001F844A /* TitleListView.swift */; };
+		2248C4A325EB0912001F844A /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248C4A225EB0912001F844A /* Array+Identifiable.swift */; };
+		2274E15A25EC158900127C1F /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274E15925EC158900127C1F /* Sidebar.swift */; };
+		2278CA9C25FD8C4A004F3DF4 /* Vibrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2278CA9B25FD8C4A004F3DF4 /* Vibrations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2225BB0C25EEE073007EFDA3 /* UINavigationController+SwipeRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+SwipeRight.swift"; sourceTree = "<group>"; };
+		2228ADEF25EB27B200ABA1E4 /* MovieThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieThumbnail.swift; sourceTree = "<group>"; };
 		2248C47225E9BAE9001F844A /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2248C47525E9BAE9001F844A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2248C47725E9BAE9001F844A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +34,10 @@
 		2248C48C25E9BB0D001F844A /* MovieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		2248C48F25E9BB15001F844A /* MovieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		2248C49325E9BB31001F844A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2248C49A25EB087F001F844A /* TitleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleListView.swift; sourceTree = "<group>"; };
+		2248C4A225EB0912001F844A /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
+		2274E15925EC158900127C1F /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		2278CA9B25FD8C4A004F3DF4 /* Vibrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibrations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,8 @@
 		2248C47425E9BAE9001F844A /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				2278CA9A25FD8C37004F3DF4 /* Utils */,
+				2248C4A525EB23A9001F844A /* Extension */,
 				2248C48B25E9BAFB001F844A /* Model */,
 				2248C48A25E9BAF7001F844A /* View */,
 				2248C47525E9BAE9001F844A /* AppDelegate.swift */,
@@ -82,6 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				2248C48C25E9BB0D001F844A /* MovieView.swift */,
+				2248C49A25EB087F001F844A /* TitleListView.swift */,
+				2228ADEF25EB27B200ABA1E4 /* MovieThumbnail.swift */,
+				2274E15925EC158900127C1F /* Sidebar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -92,6 +109,23 @@
 				2248C48F25E9BB15001F844A /* MovieModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2248C4A525EB23A9001F844A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2248C4A225EB0912001F844A /* Array+Identifiable.swift */,
+				2225BB0C25EEE073007EFDA3 /* UINavigationController+SwipeRight.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2278CA9A25FD8C37004F3DF4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2278CA9B25FD8C4A004F3DF4 /* Vibrations.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,7 +200,13 @@
 				2248C47625E9BAE9001F844A /* AppDelegate.swift in Sources */,
 				2248C48D25E9BB0D001F844A /* MovieView.swift in Sources */,
 				2248C49025E9BB15001F844A /* MovieModel.swift in Sources */,
+				2228ADF025EB27B200ABA1E4 /* MovieThumbnail.swift in Sources */,
 				2248C47825E9BAE9001F844A /* SceneDelegate.swift in Sources */,
+				2248C4A325EB0912001F844A /* Array+Identifiable.swift in Sources */,
+				2278CA9C25FD8C4A004F3DF4 /* Vibrations.swift in Sources */,
+				2248C49B25EB087F001F844A /* TitleListView.swift in Sources */,
+				2225BB0D25EEE073007EFDA3 /* UINavigationController+SwipeRight.swift in Sources */,
+				2274E15A25EC158900127C1F /* Sidebar.swift in Sources */,
 				2248C47A25E9BAE9001F844A /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

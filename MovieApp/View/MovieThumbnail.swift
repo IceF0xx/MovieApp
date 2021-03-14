@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct MovieThumbnail: View {
-    let movie: MovieTitle
+    let movie: Movie
     
     var body: some View {
-        NavigationLink(destination: MovieView()) {
+        NavigationLink(destination: MovieView(movie: movie)) {
             
             HStack(spacing: cardHorizontalSpacing) {
                 Image(movie.image)

@@ -13,7 +13,7 @@ class MovieModel {
 }
 
 
-struct MovieTitle: Codable, Identifiable {
+struct Movie: Codable, Identifiable {
     let name: String
     let description: String
     let director: String

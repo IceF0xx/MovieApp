@@ -14,8 +14,10 @@ extension UINavigationController: UIGestureRecognizerDelegate {
         interactivePopGestureRecognizer?.delegate = self
         navigationController?.hidesBarsOnSwipe = true
         navigationController?.hidesBarsOnTap = true
+        UINavigationBar.appearance().barTintColor = UIColor(Color("bg"))
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
 
-        
     }
 
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
