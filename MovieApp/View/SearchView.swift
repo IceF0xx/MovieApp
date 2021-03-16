@@ -9,12 +9,11 @@ import SwiftUI
 
 struct SearchView: View {
     var body: some View {
-        LazyVStack(spacing: 15, pinnedViews: [.sectionFooters])  {
-            
+        LazyVStack(spacing: 15, pinnedViews: [.sectionFooters]) {
+
             Text("Hello, World!")
         }
 
-        
     }
 }
 

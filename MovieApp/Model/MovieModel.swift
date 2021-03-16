@@ -9,9 +9,8 @@ import Foundation
 
 class MovieModel {
     private let baseURL = "https://api.movies.mkpwnz.moe/"
-    
-}
 
+}
 
 struct Movie: Codable, Identifiable {
     let name: String

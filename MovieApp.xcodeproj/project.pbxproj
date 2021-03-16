@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2225BB0D25EEE073007EFDA3 /* UINavigationController+SwipeRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225BB0C25EEE073007EFDA3 /* UINavigationController+SwipeRight.swift */; };
+		2225BB0D25EEE073007EFDA3 /* UINavigationController+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225BB0C25EEE073007EFDA3 /* UINavigationController+Styles.swift */; };
 		2228ADF025EB27B200ABA1E4 /* MovieThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2228ADEF25EB27B200ABA1E4 /* MovieThumbnail.swift */; };
 		2248C47625E9BAE9001F844A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248C47525E9BAE9001F844A /* AppDelegate.swift */; };
 		2248C47825E9BAE9001F844A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248C47725E9BAE9001F844A /* SceneDelegate.swift */; };
@@ -18,14 +18,16 @@
 		2248C49425E9BB31001F844A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2248C49325E9BB31001F844A /* Assets.xcassets */; };
 		2248C49B25EB087F001F844A /* TitleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248C49A25EB087F001F844A /* TitleListView.swift */; };
 		2248C4A325EB0912001F844A /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248C4A225EB0912001F844A /* Array+Identifiable.swift */; };
+		224F00CC260179FC00AA1E5B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 224F00CB260179FC00AA1E5B /* .gitignore */; };
 		2274E15A25EC158900127C1F /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2274E15925EC158900127C1F /* Sidebar.swift */; };
 		2278CA9C25FD8C4A004F3DF4 /* Vibrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2278CA9B25FD8C4A004F3DF4 /* Vibrations.swift */; };
 		2278CB2525FEB53E004F3DF4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2278CB2425FEB53E004F3DF4 /* SearchView.swift */; };
 		2278CB2825FEB5CD004F3DF4 /* FooterNavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2278CB2725FEB5CD004F3DF4 /* FooterNavbar.swift */; };
+		22BF25582601326200FD99FA /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 22BF25572601326200FD99FA /* SwiftUIX */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2225BB0C25EEE073007EFDA3 /* UINavigationController+SwipeRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+SwipeRight.swift"; sourceTree = "<group>"; };
+		2225BB0C25EEE073007EFDA3 /* UINavigationController+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Styles.swift"; sourceTree = "<group>"; };
 		2228ADEF25EB27B200ABA1E4 /* MovieThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieThumbnail.swift; sourceTree = "<group>"; };
 		2248C47225E9BAE9001F844A /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2248C47525E9BAE9001F844A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +40,7 @@
 		2248C49325E9BB31001F844A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2248C49A25EB087F001F844A /* TitleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleListView.swift; sourceTree = "<group>"; };
 		2248C4A225EB0912001F844A /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
+		224F00CB260179FC00AA1E5B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2274E15925EC158900127C1F /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		2278CA9B25FD8C4A004F3DF4 /* Vibrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibrations.swift; sourceTree = "<group>"; };
 		2278CB2425FEB53E004F3DF4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22BF25582601326200FD99FA /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +62,7 @@
 		2248C46925E9BAE9001F844A = {
 			isa = PBXGroup;
 			children = (
+				224F00CB260179FC00AA1E5B /* .gitignore */,
 				2248C47425E9BAE9001F844A /* MovieApp */,
 				2248C47325E9BAE9001F844A /* Products */,
 			);
@@ -99,8 +104,8 @@
 		2248C48A25E9BAF7001F844A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2248C48C25E9BB0D001F844A /* MovieView.swift */,
 				2248C49A25EB087F001F844A /* TitleListView.swift */,
+				2248C48C25E9BB0D001F844A /* MovieView.swift */,
 				2228ADEF25EB27B200ABA1E4 /* MovieThumbnail.swift */,
 				2274E15925EC158900127C1F /* Sidebar.swift */,
 				2278CB2425FEB53E004F3DF4 /* SearchView.swift */,
@@ -121,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				2248C4A225EB0912001F844A /* Array+Identifiable.swift */,
-				2225BB0C25EEE073007EFDA3 /* UINavigationController+SwipeRight.swift */,
+				2225BB0C25EEE073007EFDA3 /* UINavigationController+Styles.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -144,12 +149,16 @@
 				2248C46E25E9BAE9001F844A /* Sources */,
 				2248C46F25E9BAE9001F844A /* Frameworks */,
 				2248C47025E9BAE9001F844A /* Resources */,
+				224F00BE26016F4400AA1E5B /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MovieApp;
+			packageProductDependencies = (
+				22BF25572601326200FD99FA /* SwiftUIX */,
+			);
 			productName = MovieApp;
 			productReference = 2248C47225E9BAE9001F844A /* MovieApp.app */;
 			productType = "com.apple.product-type.application";
@@ -177,6 +186,9 @@
 				Base,
 			);
 			mainGroup = 2248C46925E9BAE9001F844A;
+			packageReferences = (
+				22BF25562601326200FD99FA /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+			);
 			productRefGroup = 2248C47325E9BAE9001F844A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -192,11 +204,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				2248C49425E9BB31001F844A /* Assets.xcassets in Resources */,
+				224F00CC260179FC00AA1E5B /* .gitignore in Resources */,
 				2248C47F25E9BAE9001F844A /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		224F00BE26016F4400AA1E5B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint \nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2248C46E25E9BAE9001F844A /* Sources */ = {
@@ -213,7 +246,7 @@
 				2278CB2825FEB5CD004F3DF4 /* FooterNavbar.swift in Sources */,
 				2278CA9C25FD8C4A004F3DF4 /* Vibrations.swift in Sources */,
 				2248C49B25EB087F001F844A /* TitleListView.swift in Sources */,
-				2225BB0D25EEE073007EFDA3 /* UINavigationController+SwipeRight.swift in Sources */,
+				2225BB0D25EEE073007EFDA3 /* UINavigationController+Styles.swift in Sources */,
 				2274E15A25EC158900127C1F /* Sidebar.swift in Sources */,
 				2248C47A25E9BAE9001F844A /* MainView.swift in Sources */,
 			);
@@ -402,6 +435,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22BF25562601326200FD99FA /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22BF25572601326200FD99FA /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22BF25562601326200FD99FA /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2248C46A25E9BAE9001F844A /* Project object */;
 }
